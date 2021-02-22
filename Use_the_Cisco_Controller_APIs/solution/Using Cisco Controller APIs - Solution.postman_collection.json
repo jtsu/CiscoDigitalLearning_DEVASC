@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "a9f988eb-20e7-4738-ae21-8da534de032c",
+		"name": "Using Cisco Controller APIs - Solution",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Meraki",
+			"item": [
+				{
+					"name": "List Networks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/organizations/{{organizationId}}/networks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"organizations",
+								"{{organizationId}}",
+								"networks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/networks/L_646829496481103944/devices",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"networks",
+								"L_646829496481103944",
+								"devices"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "{{X-Cisco-Meraki-API-Key}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "X-Cisco-Meraki-API-Key",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "96aba7f6-f034-45ac-858d-92a2658f88b5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6cfd95d0-2dd4-4da6-a61a-8c82a533de8c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "NSO",
+			"item": [
+				{
+					"name": "List Devices",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/vnd.yang.data+json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/vnd.yang.collection+json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://dev.nso.local:8080/api/running/devices/device?shallow",
+							"protocol": "http",
+							"host": [
+								"dev",
+								"nso",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"running",
+								"devices",
+								"device"
+							],
+							"query": [
+								{
+									"key": "shallow",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "admin",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "47aaa114-7859-4656-bacf-02be9e8b41e6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6862fc62-fbaa-477e-9e99-3e059ccdfc2d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "cc01e5f0-b901-44c2-b0ca-736c1c97e200",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "272ddc74-e9a1-4597-8b71-b84b95ab9b91",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "1c2502b2-893a-496b-9d70-2335057dc101",
+			"key": "X-Cisco-Meraki-API-Key",
+			"value": "093b24e85df15a3e66f1fc359f4c48493eaa1b73",
+			"type": "string"
+		},
+		{
+			"id": "f3435ab0-f89d-4961-a975-0ecad3d67988",
+			"key": "organizationId",
+			"value": "549236",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

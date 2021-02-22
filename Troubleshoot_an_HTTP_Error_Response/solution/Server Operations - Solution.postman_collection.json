@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "53eb53f5-c0a5-45c9-8289-4508d2cec4cd",
+		"name": "Server Operations",
+		"description": "Collection of requests for receiving information and performing operations on a remote server. This is an RPC-Style API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Server Status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "dev.web.local/status",
+					"host": [
+						"dev",
+						"web",
+						"local"
+					],
+					"path": [
+						"status"
+					]
+				},
+				"description": "Requests status information from the server. Try to set the `Accept` header to `text/html`."
+			},
+			"response": [
+				{
+					"name": "Server Status HTML",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "text/html"
+							}
+						],
+						"url": {
+							"raw": "dev.web.local/status",
+							"host": [
+								"dev",
+								"web",
+								"local"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Server Status JSON",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "dev.web.local/status",
+							"host": [
+								"dev",
+								"web",
+								"local"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Feb 2020 11:33:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.16.0 Python/3.6.8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"status\": \"ok\",\n    \"time\": \"11:33:12.638099\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Perform Backup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "action",
+							"value": "backup",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "dev.web.local/status",
+					"host": [
+						"dev",
+						"web",
+						"local"
+					],
+					"path": [
+						"status"
+					]
+				},
+				"description": "Requests the server to perform backup operations. Simulates posting a web form with key name `action` and any value."
+			},
+			"response": [
+				{
+					"name": "Perform Backup",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "action",
+									"value": "backup",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "dev.web.local/status",
+							"host": [
+								"dev",
+								"web",
+								"local"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Feb 2020 11:21:40 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.16.0 Python/3.6.8"
+						}
+					],
+					"cookie": [],
+					"body": "Server recevied request for action: backup"
+				}
+			]
+		},
+		{
+			"name": "Perform Reboot",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"method\": \"performReboot\",\n    \"params\": {\n        \"time\": \"now\"\n    },\n    \"id\": 10\n}"
+				},
+				"url": {
+					"raw": "dev.web.local/status",
+					"host": [
+						"dev",
+						"web",
+						"local"
+					],
+					"path": [
+						"status"
+					]
+				},
+				"description": "Requests the server to perform backup operations."
+			},
+			"response": [
+				{
+					"name": "Perform Reboot",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"method\": \"performReboot\",\n    \"params\": {\n        \"time\": \"now\"\n    },\n    \"id\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "dev.web.local/status",
+							"host": [
+								"dev",
+								"web",
+								"local"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "99"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Feb 2020 11:27:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.16.0 Python/3.6.8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": null,\n    \"id\": 10,\n    \"result\": \"Server received request for action: performReboot\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "A1b2C3d4E5f6G7h8I9j0KlMnOp",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "30f57ee5-972f-48ba-a7de-1bd3a4d1990f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2bf255b1-13ad-437e-b326-50f456602e8f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "2b98eb1a-b569-49ea-adaf-abe1c73d3bec",
+			"key": "server",
+			"value": "dev.web.local",
+			"type": "string"
+		},
+		{
+			"id": "cddcbada-c499-4b6c-8edb-a10f887e153b",
+			"key": "token",
+			"value": "foo",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,104 @@
+**************
+*** Task 2 ***
+**************
+** Step 1 **
+# Everything ok?
+if response:
+    return response.json()
+
+** Step 2 **
+# Raise HTTP error if occurs
+response.raise_for_status()
+
+** Step 3 **
+# Network timeout, should we retry?
+except requests.ConnectTimeout:
+    if tries < REQUEST_RETRIES: 
+        continue 
+    else: 
+        raise
+
+**************
+*** Task 3 ***
+**************
+** Step 1 **
+## Basic auth
+def basic_auth():
+    url = URL + '/login' 
+    creds =
+    headers =
+    response = 
+    print(response) 
+    #return response.get('')
+
+** Step 2 **
+creds = to_base64(f'{USERNAME}:{PASSWORD}')
+
+** Step 3 **
+headers = {'Authorization': f'Basic {creds}'}
+
+** Step 5 **
+api_key = basic_auth()
+
+** Step 7 **
+return response.get('key')
+
+**************
+*** Task 4 ***
+**************
+** Step 1 **
+## API Key auth
+def invoke_info_v1(api_key, name):
+    url = URL + '/v1/info' 
+    headers =  
+    data =  
+    response =  
+    print(response) 
+    #return response.get('')
+
+** Step 2 **
+headers = {'x-api-key': api_key}
+
+** Step 3 **
+data = {'name': name}
+
+** Step 4 **
+response = send_request(url, data, headers)
+
+** Step 5 **
+print('API Key Auth')
+bearer_token = invoke_info_v1(api_key, '' )
+
+** Step 6 **
+bearer_token = invoke_info_v1(api_key, 'World!')
+
+** Step 8 **
+return response.get('bearer_token')
+
+**************
+*** Task 5 ***
+**************
+** Step 1 **
+## Bearer token
+def invoke_info_v2(bearer_token, name):
+    url = URL + '/v2/info' 
+    headers =  
+    data =  
+    response =  
+    print(response)
+
+** Step 2 **
+headers = {'Authorization': f'Bearer {bearer_token}'}
+
+** Step 3 **
+data = {'name': name}
+
+** Step 4 **
+response = send_request(url, data, headers)
+
+** Step 5 **
+print('Bearer Token Auth')
+invoke_info_v2(bearer_token, '' )
+
+** Step 6 **
+invoke_info_v2(bearer_token, 'World!')

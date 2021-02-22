@@ -1,0 +1,109 @@
+**************
+*** Task 1 ***
+**************
+** Step 1 **
+cd ~/working_directory/
+pipenv install netconf-console
+
+** Step 2 **
+ssh cisco@10.0.0.20
+
+** Step 3 **
+show running-config | include netconf-yang
+
+** Step 4 **
+configure terminal
+netconf-yang
+
+** Step 5 **
+exit
+show running-config | include netconf-yang
+
+** Step 6 **
+exit
+
+** Step 7 **
+pipenv shell
+
+** Step 8 **
+netconf-console --help
+
+** Step 9 **
+netconf-console --host=10.0.0.20  --port 830 --user cisco --password cisco --hello
+
+** Step 11 **
+netconf-console --host=10.0.0.20  --port 830 --user cisco --password cisco --hello | grep Cisco-IOS-XE-native
+
+**************
+*** Task 2 ***
+**************
+** Step 1 **
+netconf-console -h |grep get-config
+
+** Step 2 **
+netconf-console --host 10.0.0.20 --port 830 --user cisco --password cisco --get-config
+
+** Step 3 **
+netconf-console --host 10.0.0.20 --port 830 --user cisco --password cisco --get-config --dry
+
+** Step 4 **
+netconf-console --host=10.0.0.20 --port 830 --user cisco --password cisco  --get-config /native --dry
+
+** Step 5 **
+netconf-console --host 10.0.0.20 --port 830 --user cisco --password cisco  --get-config /native
+
+** Step 7 **
+netconf-console --host 10.0.0.20 --port 830 --user cisco --password cisco  --get-config /native/interface
+
+** Steo 8 **
+netconf-console --host 10.0.0.2 --port 830 --user cisco --password cisco --get-config /native/interface/GigabitEthernet
+
+** Step 9 **
+netconf-console --host 10.0.0.20 --port 830 --user cisco --password cisco  --get-config /native/interface/GigabitEthernet[name=5]
+
+
+**************
+*** Task 3 ***
+**************
+** Step 1 **
+netconf-console --help |grep rpc
+
+** Step 3 **
+netconf-console --host 10.0.0.20 --port 830 --user cisco --password cisco --get-config /native --dry
+
+** Step 5 **
+  <nc:get-config> 
+    <nc:source> 
+      <nc:running/> 
+    </nc:source> 
+    <nc:filter type="xpath" select="/native"/> 
+  </nc:get-config>
+
+** Step 6 **
+netconf-console --host 10.0.0.20 --port 830 --user cisco --password cisco --rpc custom-rpc.xml
+
+** Step 7 **
+netconf-console --host 10.0.0.20 --port 830 --user cisco --password cisco --rpc custom-rpc.xml --dry
+
+** Step 8 **
+  <nc:get-config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <nc:source> 
+      <nc:running/> 
+    </nc:source> 
+    <nc:filter type="xpath" select="/native"/> 
+  </nc:get-config>
+
+** Step 9 **
+netconf-console --host 10.0.0.20 --port 830 --user cisco --password cisco --rpc custom-rpc.xml
+
+** Step 10 **
+  <nc:get-config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0"> 
+    <nc:source> 
+      <nc:running/> 
+    </nc:source> 
+    <nc:filter type="xpath" select="/native/interface/GigabitEthernet[name=5]"/>
+  </nc:get-config>
+
+
+** Step 11 **
+netconf-console --host 10.0.0.20 --port 830 --user cisco --password cisco --rpc custom-rpc.xml

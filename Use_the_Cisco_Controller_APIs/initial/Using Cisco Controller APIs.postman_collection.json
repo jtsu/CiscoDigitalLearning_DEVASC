@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "7cd0698e-6b03-443c-b946-113a61b75147",
+		"name": "Using Cisco Controller APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Meraki",
+			"item": [
+				{
+					"name": "List Networks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/organizations/{{organizationId}}/networks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"organizations",
+								"{{organizationId}}",
+								"networks"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "{{X-Cisco-Meraki-API-Key}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "X-Cisco-Meraki-API-Key",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7057fa0a-dbe9-4c12-9657-141306b1c910",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "88baba0a-ca92-4f13-826c-ea593f09b5e9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "NSO",
+			"item": [],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "edc5397a-1cc1-4932-8ad4-50ad935c5bd4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e5fc9cc4-39c2-46cf-9632-66ae5151744c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "f61f83dc-1efe-4f0f-974d-2e187f6bc080",
+			"key": "X-Cisco-Meraki-API-Key",
+			"value": "093b24e85df15a3e66f1fc359f4c48493eaa1b73",
+			"type": "string"
+		},
+		{
+			"id": "5c58a93a-9d68-4ed1-81eb-ee6f8013d7dc",
+			"key": "organizationId",
+			"value": "549236",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

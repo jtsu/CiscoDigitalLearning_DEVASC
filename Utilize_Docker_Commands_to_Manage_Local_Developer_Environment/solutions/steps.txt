@@ -1,0 +1,49 @@
+**************
+*** Task 1 ***
+**************
+** Step 1 **
+docker search alpine
+
+** Step 2 **
+docker pull alpine
+
+** Step 3 **
+docker images
+
+**************
+*** Task 2 ***
+**************
+** Step 1 **
+docker run -dit -p 80:8080 --name alpine alpine:latest
+
+** Step 2 **
+docker exec -it alpine /bin/sh
+
+** Step 3 **
+ps -a
+
+** Step 4 **
+exit
+
+**************
+*** Task 3 ***
+**************
+** Step 1 **
+docker run -dit -p 80:8080 --name ubuntu ubuntu:latest
+
+** Step 2 **
+docker ps -a
+
+** Step 3 **
+docker stop alpine
+
+** Step 4 **
+docker rm alpine
+docker rm ubuntu
+docker ps -a
+
+** Step 5 **
+docker run -dit -p 80:8080 --name ubuntu ubuntu:latest
+
+** Step 6 **
+docker ps -a

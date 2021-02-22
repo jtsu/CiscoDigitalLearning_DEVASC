@@ -1,0 +1,74 @@
+**************
+*** Task 1 ***
+**************
+** Step 2 **
+pwd
+
+** Step 3 **
+env
+
+** Step 4 **
+ls
+
+** Step 5 **
+cd Desktop/
+
+** Step 6 **
+mkdir Student-folder && cd Student-folder
+
+** Step 7 **
+cd ../../
+
+**************
+*** Task 2 ***
+**************
+** Step 1 **
+cd Desktop/Student-folder/
+
+** Step 2 **
+pwd
+
+** Step 3 **
+home_pwd=/home/student/Desktop/Student-folder/ 
+
+** Step 4 **
+bash
+
+** Step 5 **
+echo $home_pwd
+
+** Step 6 **
+home_pwd=/home/student/Desktop/Student-folder/
+
+** Step 7 **
+export home_pwd
+
+** Step 8 **
+bash
+
+** Step 9 **
+echo $home_pwd
+
+** Step 10 **
+touch file1.txt file2.txt
+
+** Step 11 **
+ls
+
+** Step 12 **
+cd ../../
+
+** Step 13 **
+cp $home_pwd/file1.txt file3.txt
+
+** Step 14 **
+ls
+
+** Step 15 **
+rm file3.txt
+
+** Step 16 **
+ls
+
+** Step 17 **
+env | grep “home_pwd”

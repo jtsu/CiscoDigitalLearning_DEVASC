@@ -1,0 +1,80 @@
+**************
+*** Task 1 ***
+**************
+** Step 1 **
+ssh cisco@10.0.0.20
+
+** Step 2 **
+show running-config | include netconf-yang
+
+** Step 3 **
+configure terminal
+netconf-yang
+
+** Step 4 **
+exit
+show running-config | include netconf-yang
+
+** Step 5 **
+show ip interface brief
+
+**************
+*** Task 2 ***
+**************
+** Step 1 **
+cd ~/working_directory/
+
+** Step 2 **
+pipenv install ydk
+
+** Step 3 **
+pipenv install ydk-models-cisco-ios-xe
+
+** Step 5 **
+from ydk.models.cisco_ios_xe import Cisco_IOS_XE_native as xe_native
+
+** Step 6 **
+native = xe_native.Native()
+
+** Step 7 **
+print(dir(native))
+
+** Step 8 **
+pipenv run python cisco-xe.py
+
+**************
+*** Task 3 ***
+**************
+** Step 2 **
+#CSR1kv1 Credentials
+ip = '10.0.0.20'
+port_n =830
+user = 'cisco'
+paswd = 'cisco'
+proto = 'ssh'
+
+** Step 3 **
+crud = CRUDService()
+
+** Step 4 **
+xe_interfaces =  xe_model.Native.Interface()
+
+** Step 5 **
+interfaces_data = crud.read(provider, xe_interfaces)
+
+** Step 6 **
+print(interfaces_data.gigabitethernet[4].ip.address.primary.address)
+
+** Step 10 **
+xe_int_giga =  xe_model.Native.Interface.GigabitEthernet()
+xe_int_giga.name = '5'
+
+** Step 11 **
+print(intf_conf.ip.address.primary.address)
+
+** Step 12 **
+intf_data.description = 'interface description'
+crud.update(provider, intf_data)
+
+** Step 13 **
+print(intf_data.description)

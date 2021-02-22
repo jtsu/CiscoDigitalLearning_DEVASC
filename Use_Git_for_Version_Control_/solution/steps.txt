@@ -1,0 +1,73 @@
+**************
+*** Task 1 ***
+**************
+** Step 4 **
+cd /home/student/workspace
+
+** Step 5 **
+git config --global user.name "student"
+git config --global user.email student@dev.local
+
+** Step 7 **
+git clone http://dev.gitlab.local/student/devnet-lab02.git .
+
+** Step 8 **
+ls -la
+
+**************
+*** Task 2 ***
+**************
+** Step 1 **
+touch lab02.py
+
+** Step 2 **
+git status
+
+** Step 3 **
+git add lab02.py
+
+** Step 4 **
+git status
+
+** Step 5 **
+git commit -m "Add lab02.py file"
+git status
+
+** Step 6 **
+git push origin master
+git status
+
+** Step 10 **
+print('Working with Git')
+
+**************
+*** Task 3 ***
+**************
+** Step 1 **
+git checkout -b staging
+
+** Step 2 **
+git diff master
+
+** Step 3 **
+git diff master
+
+** Step 4 **
+git add lab02.py
+git commit -m "Add print statement"
+
+**************
+*** Task 4 ***
+**************
+** Step 1 **
+git branch
+
+** Step 2 **
+git checkout master
+
+** Step 3 **
+git merge staging
+
+** Step 4 **
+git status
+git push origin  master

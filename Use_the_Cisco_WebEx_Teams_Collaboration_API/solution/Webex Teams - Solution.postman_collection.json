@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "39f654cc-6296-4b98-8708-347eb8e693d4",
+		"name": "Webex Teams API - Solution",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Webhooks",
+			"item": [
+				{
+					"name": "List webhooks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://api.ciscospark.com/v1/webhooks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ciscospark",
+								"com"
+							],
+							"path": [
+								"v1",
+								"webhooks"
+							]
+						},
+						"description": "Lists all of your webhooks.\n\nhttps://developer.webex.com/endpoint-webhooks-get.html"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a webhook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f69f827e-3135-4737-ad0f-6f6eb1120e8e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"name\": \"Webhook to Studenbot (all events, no filter)\",\n      \"resource\": \"all\",\n      \"event\": \"all\",\n      \"targetUrl\": \"https://00000000.ngrok.io/events\"\n    }"
+						},
+						"url": {
+							"raw": "https://api.ciscospark.com/v1/webhooks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ciscospark",
+								"com"
+							],
+							"path": [
+								"v1",
+								"webhooks"
+							]
+						},
+						"description": "Creates a webhook for messages/created event.\n\nNote that you'll need to change the requestb.in URI to your own to see the webhook in action.\n\nhttps://developer.webex.com/endpoint-webhooks-post.html"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "List rooms",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0daa424-b96e-4b25-a1cc-46566d988047",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.ciscospark.com/v1/rooms",
+					"protocol": "https",
+					"host": [
+						"api",
+						"ciscospark",
+						"com"
+					],
+					"path": [
+						"v1",
+						"rooms"
+					]
+				},
+				"description": "List rooms.\r\n\r\nBy default, lists rooms to which the authenticated user belongs.\r\n\r\nhttps://developer.webex.com/endpoint-rooms-get.html"
+			},
+			"response": []
+		},
+		{
+			"name": "List messages",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e191e914-0acb-46df-b4dd-a2982b6e5a24",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.ciscospark.com/v1/messages?roomId={{roomId}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"ciscospark",
+						"com"
+					],
+					"path": [
+						"v1",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "roomId",
+							"value": "{{roomId}}"
+						}
+					]
+				},
+				"description": "Lists all messages in a room. If present, includes the associated media content attachment for each message.\r\n\r\nThe list sorts the messages in descending order by creation date.\r\n\r\nhttps://developer.webex.com/endpoint-messages-get.html"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a message",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "20461429-4c19-4d02-9fdc-c238b2e80921",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"roomId\" : \"{{roomId}}\",\r\n  \"text\" : \"HELLO FROM BOT\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.ciscospark.com/v1/messages",
+					"protocol": "https",
+					"host": [
+						"api",
+						"ciscospark",
+						"com"
+					],
+					"path": [
+						"v1",
+						"messages"
+					]
+				},
+				"description": "Posts a plain text or markdown message, and optionally, a media content attachment, to a room.\n\nhttps://developer.webex.com/endpoint-messages-post.html"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "Token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4c6313b4-a9d3-4beb-a7f9-a2d1dfc646b4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "62db5ad5-6405-47a2-8d02-275138527e5d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "2cbd1736-6b01-405b-bc91-e0eaca71f3e0",
+			"key": "roomId",
+			"value": "roomId",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
